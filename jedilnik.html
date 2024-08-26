@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedilnik za 7 dni</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;}
+        <link rel="stylesheet" href="styles.css">
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Jedilnik za 7 dni</h1>
+<button onclick="generateMenu()">Generiraj jedilnik</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>Dan</th>
+            <th>Jed</th>
+        </tr>
+    </thead>
+    <tbody id="menuTable">
+        <tr>
+            <td>Ponedeljek</td>
+            <td id="day1"></td>
+        </tr>
+        <tr>
+            <td>Torek</td>
+            <td id="day2"></td>
+        </tr>
+        <tr>
+            <td>Sreda</td>
+            <td id="day3"></td>
+        </tr>
+        <tr>
+            <td>Četrtek</td>
+            <td id="day4"></td>
+        </tr>
+        <tr>
+            <td>Petek</td>
+            <td id="day5"></td>
+        </tr>
+        <tr>
+            <td>Sobota</td>
+            <td id="day6"></td>
+        </tr>
+        <tr>
+            <td>Nedelja</td>
+            <td id="day7"></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    const dishes = [
+        'Špageti z bolonjsko omako',
+        'Pečena piščančja prsa s krompirjem',
+        'Zelenjavna rižota',
+        'Goveji golaž',
+        'Solata s tuno',
+        'Palačinke',
+        'Ribe z žara',
+        'Testenine s pesto omako',
+        'Zeljna juha',
+        'Pečena svinjska rebra',
+        'Ocvrt piščanec',
+        'Jota',
+        'Kruhovi cmoki z golažem',
+        'Lazanja',
+        'Pizza',
+        'Minestrone juha',
+        'Rizibizi z mesom',
+        'Krompirjev golaž'
+    ];
+
+    function getRandomDish() {
+        return dishes[Math.floor(Math.random() * dishes.length)];
+    }
+
+    function generateMenu() {
+        for (let i = 1; i <= 7; i++) {
+            document.getElementById(`day${i}`).textContent = getRandomDish();
+        }
+    }
+</script>
+
+</body>
+</html>
